@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iniciar Sessão - AnTPlay+</title>
+<title>Iniciar sessão - AnTPlay+</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 
 <div class="auth-container">
-    <span class="close-btn" onclick="window.location.href='index.html'">&times;</span>
+    <span class="close-btn" onclick="window.location.href='/inicio'">&times;</span>
     <h1>Iniciar Sessão</h1>
     <form id="loginForm">
         <input type="email" id="loginEmail" placeholder="Email" required>
         <input type="password" id="loginPassword" placeholder="Palavra-passe" required>
         <button type="submit">Entrar</button>
     </form>
-    <p>Não tens conta? <a href="signup.html">Cria uma agora</a></p>
+    <p>Não tens conta? <a href="/criar-conta">Cria uma agora</a></p>
 </div>
 
-<!-- Firebase -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
@@ -47,8 +47,8 @@ loginForm.addEventListener("submit", (e) => {
 
     signInWithEmailAndPassword(auth, email, password)
     .then(() => {
-        alert("Login feito com sucesso!");
-        window.location.href = "index.html";
+        alert("Sessão iniciada com sucesso!");
+        window.location.href = "/inicio";
     })
     .catch((error) => {
         alert("Erro: " + error.message);
