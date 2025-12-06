@@ -7,14 +7,54 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="auth-container">
+    <span class="close-btn" onclick="window.location.href='index.html'">&times;</span>
     <h1>Iniciar Sessão</h1>
-    <form>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Palavra-passe" required>
+    <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Palavra-passe" required>
         <button type="submit">Entrar</button>
     </form>
-    <p>Não tens conta? <a href="signup.html">Criar Conta</a></p>
+    <p>Não tens conta? <a href="signup.html">Cria uma agora</a></p>
 </div>
+
+<!-- Firebase -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBgxhr6jdwNJ0J-F4DM6Yii22SEMYqtgT0",
+  authDomain: "antplay-b3d99.firebaseapp.com",
+  projectId: "antplay-b3d99",
+  storageBucket: "antplay-b3d99.firebasestorage.app",
+  messagingSenderId: "1025818751668",
+  appId: "1:1025818751668:web:e4d8b576262dcc63555de1",
+  measurementId: "G-QRWQ91HKBC"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+
+const loginForm = document.getElementById("loginForm");
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+        alert("Login feito com sucesso!");
+        window.location.href = "index.html";
+    })
+    .catch((error) => {
+        alert("Erro: " + error.message);
+    });
+});
+</script>
+
 </body>
 </html>
