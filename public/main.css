@@ -1,0 +1,51 @@
+body {
+    background: #4e67b1;
+    color: #ffffff;
+    font-family: 'Nunito', Arial Rounded MT Bold, Arial, sans-serif;
+    margin: 0;
+}
+
+a, button {
+    color: #ba852a;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.navbar {
+    background: #4e67b1;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #ba852a;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 24px;
+}
+
+.card {
+    background: #344084;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px;
+    box-shadow: 0 3px 12px rgba(78,103,177,0.4);
+    color: #fff;
+}
+.btn-primary {
+    background: #ba852a;
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
